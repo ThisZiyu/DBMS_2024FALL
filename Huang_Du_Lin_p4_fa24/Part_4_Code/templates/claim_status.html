@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Status - HealthCare Plus</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="bg-white shadow rounded-lg p-6">
+            <h1 class="text-2xl font-bold text-gray-900 mb-4">Claim Status</h1>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="mb-4 p-4 rounded-md {% if category == 'success' %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="mt-4">
+                <h2 class="text-lg font-semibold">Claim Details</h2>
+                <div class="mt-2 grid grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Claim Number</p>
+                        <p class="text-sm text-gray-900">{{ claim.claim_number }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Status</p>
+                        <p class="text-sm">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                                {% if claim.status == 'pending' %}bg-yellow-100 text-yellow-800
+                                {% elif claim.status == 'approved' %}bg-green-100 text-green-800
+                                {% else %}bg-red-100 text-red-800{% endif %}">
+                                {{ claim.status }}
+                            </span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Submit Date</p>
+                        <p class="text-sm text-gray-900">{{ claim.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Amount</p>
+                        <p class="text-sm text-gray-900">${{ "%.2f"|format(claim.amount) }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <a href="{{ url_for('my_claims') }}" class="text-blue-600 hover:text-blue-800">
+                    View All Claims
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
