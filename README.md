@@ -10,6 +10,7 @@ This system provides a comprehensive solution for insurance management, featurin
 - Automated claims processing
 - Real-time data integration
 - Web-based user interface
+  (Code implementation is in part 4, and we provide a demo introducing how the web page looks like.)
 
 ## Machine Learning Model
 
