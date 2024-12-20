@@ -13,6 +13,7 @@ Healthcare Plus Insurance System is a web-based application for managing health 
   - Risk assessment based on health factors
   - Real-time premium calculation
   - Multiple plan options (Basic, Standard, Premium)
+  - The result is calculated by a machine learning model
 
 - **Claims Management**
   - Submit new claims
