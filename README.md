@@ -2,6 +2,7 @@
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
 [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-1.4+-orange.svg)](https://www.sqlalchemy.org/)
+The whole project is completed by Qin Du, Ziyu Lin, Lu Huang.
 
 ## Overview
 Healthcare Plus Insurance System is a web-based application for managing health insurance claims and quotes. It provides functionality for users to get insurance quotes based on their health factors and submit insurance claims.
